@@ -1,4 +1,4 @@
-# Einsite Data Science Hiring Challenge
+# HACKEREARTH: Einsite Data Science Hiring Challenge
 - **Competition** : [here](https://www.hackerearth.com/challenge/hiring/einsite-data-science-hiring-challenge/)
 
 - **Leaderboard** : [here](https://www.hackerearth.com/challenge/hiring/einsite-data-science-hiring-challenge/leaderboard/)
