@@ -42,6 +42,7 @@ Rank      : 136
 |execution_time|the execution time of the solution|
 
 >> **users.csv**: This is the file containing data of the users.
+
 |Variable|Description|
 | ------------- |:-------------|
 |user_id|the user id|
@@ -53,5 +54,7 @@ Rank      : 136
 ## Evaluation Metric
  
 > Submissions will be evaluated based on accuracy. Score is calculated with the following formula:
+
 >> score = (Number of correct predictions) / Total records
+
 > Your submission will be evaluated only for 50% of the test data while the contest is running. Once the contest is over, your submission will be evaluated against the entire test data and your final score and rank will be updated in the leaderboard.
