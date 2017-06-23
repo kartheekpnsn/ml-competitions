@@ -1,4 +1,4 @@
-# HACKEREARTH: IndiaHacks 2017 - Machine Laerning/Predict the Road Sign Here
+# HACKEREARTH: IndiaHacks 2017 - Machine Learning/Predict the Road Sign Here
 - **Competition** : [here](https://www.hackerearth.com/challenge/competitive/machine-learning-indiahacks-2017/machine-learning/predict-the-road-sign-1/)
 
 - **Leaderboard** : [here](https://www.hackerearth.com/challenge/competitive/machine-learning-indiahacks-2017/leaderboard/)
