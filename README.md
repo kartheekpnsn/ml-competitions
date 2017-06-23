@@ -1,2 +1,5 @@
-# ml-competitions
-Different ML Competitions codes
+# Repo name: ml-competitions
+```
+Last updated on: 23JUN2017
+```
+Different ML Competitions codes.
