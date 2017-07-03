@@ -159,26 +159,4 @@ source('https://raw.githubusercontent.com/kartheekpnsn/machine-learning-codes/ma
 	test_id = o_test$ID
 	pred = xgb_predict(xgb_fit$fit, o_test[, !c('ID'), with = F])
 	submission = data.table(ID = test_id, segment = pred)
-	write.csv(submission, 'submission-2.csv', row.names = F)
-
-	library(h2o)
-	h2o.init(nthreads = -1, max_mem_size = '8G')
-
-	h2o_train = as.h2o(o_train)
-	h2o_test = as.h2o(o_test)
-
-	# Identify predictors and response
-	y <- "segment"
-	x <- setdiff(names(o_train), y)
-
-	splits = h2o.splitFrame(data = h2o_train, ratios = c(0.75), seed = 294056)
-	train = splits[[1]]
-	valid = splits[[2]]
-
-	print("# # # random forest # # #")
-	fit = h2o.randomForest(x = x, y = y, training_frame = train, ntrees = 500, 
-		validation_frame = valid, seed = 294056)
-	impFeatures = fit@model$variable_importances$variable[fit@model$variable_importances$percentage >= 0.01]
-	predicted = as.integer(as.vector(h2o.predict(fit, newdata = valid)$predict))
-	original = as.integer(as.vector(test$Y))
-	print(performance(predicted = predicted, original = original))
+	write.csv(submission, 'my-submission.csv', row.names = F)
