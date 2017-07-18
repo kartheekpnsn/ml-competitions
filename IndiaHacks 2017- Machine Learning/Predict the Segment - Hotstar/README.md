@@ -8,7 +8,7 @@
 ```
 Opened At : May 30, 12:00 AM IST
 Closed At : Jul 03, 12:00 AM IST
-Rank      : 62
+Rank      : 66
 ```
 
 ## Problem Statement
