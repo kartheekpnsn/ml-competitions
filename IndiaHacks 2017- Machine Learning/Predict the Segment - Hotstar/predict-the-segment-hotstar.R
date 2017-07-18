@@ -1,6 +1,7 @@
 setwd('F:\\Kartheek\\Data\\ml-competitions\\IndiaHacks 2017 Machine Learning\\Predict the Segment - Hotstar')
 
 source('https://raw.githubusercontent.com/kartheekpnsn/machine-learning-codes/master/R/functions.R')
+source('https://raw.githubusercontent.com/kartheekpnsn/machine-learning-codes/master/R/xgb_tune.R')
 
 # # # load the required libraries # # #
 	library(data.table)
@@ -152,19 +153,18 @@ source('https://raw.githubusercontent.com/kartheekpnsn/machine-learning-codes/ma
 	o_test = o_test[ID %in% o_test_raw[, ID]]
 
 # # ML Model - XGBOOST # #
-	source('https://raw.githubusercontent.com/kartheekpnsn/machine-learning-codes/master/R/xgb_tune.R')
 	X = subset(o_train, select = setdiff(colnames(o_train), c('segment', 'ID')))
 	Y = o_train$segment
 	imp = importantFeatures(X, Y)
-	print(imp$anova[significant == FALSE]) # as everything feature is a numerical feature - we get only ANOVA as returned output
+	print(imp$anova[significant == FALSE])
 	# X = X[, !imp$anova[significant == F,]$feature, with = F]
 
 	index = dataSplit(Y, split_ratio = c(0.75))
 	xgb_fit = xgb_train(X[index$train, ], Y[index$train], cv = FALSE, eval_metric = 'auc', 
-				hyper_params = list(nrounds = 191, eta = 0.05, 
-							colsample_bytree = 0.8, 
-							colsample_byleaf = 0.6, 
-							max_depth = 5))
+		hyper_params = list(nrounds = 191, eta = 0.05, 
+								colsample_bytree = 0.8, 
+								colsample_byleaf = 0.6, 
+								max_depth = 5))
 	print(xgb_fit$metric)
 	pred = xgb_predict(xgb_fit$fit, o_test[, !c('ID'), with = F])
 	submission = data.table(ID = o_test[, ID], segment = pred)
